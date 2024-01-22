@@ -1,0 +1,42 @@
+{% extends "AppEcommerce/base.html" %}
+
+{% load static %}
+
+   {% block slider %}
+
+   <div class="row mt-5">
+
+        <div class="col-sm-3"></div>
+        
+        <div class="col-sm-6">         
+
+            <h2>Detalles de Producto</h2>
+            <p>Título: {{ producto.titulo }}</p>
+            <p>Precio: {{ producto.precio }}</p>
+            <p>Descripción Corta: {{ producto.descripcion_corta }}</p>
+            <p>Descripción Amplia: {{ producto.descripcion_amplia }}</p>
+
+            <img src="/{{ producto.foto }}" alt="" class="img-fluid">
+
+            <div class="d-flex justify-content-end">
+
+                {% if user.is_authenticated %}
+
+                <a href="{% url 'editar_producto' producto.id_producto %}" class="btn btn-sm btn-info mr-2">EDITAR</a>
+                <a href="{% url 'listar_productos' %}" class="btn btn-sm btn-success">VOLVER</a>
+
+                {% else %}
+
+                <a href="{% url 'productos_todos' %}" class="btn btn-sm btn-success">VOLVER</a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+        
+        <div class="col-sm-3"></div>
+
+    </div>
+
+   {% endblock %}

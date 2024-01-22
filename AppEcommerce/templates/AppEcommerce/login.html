@@ -1,0 +1,31 @@
+{% extends "AppEcommerce/base.html" %}
+
+{% load static %}
+
+   {% block slider %}
+    
+    <div class="row mt-5">
+
+        <div class="col-sm-3"></div>
+        
+        <div class="col-sm-6">         
+
+            <h3>Ingreso al sistema</h3>
+
+            <form method="post" class="mt-5">
+
+                {% csrf_token %}
+        
+                {{ form.as_p }}
+        
+                <button type="submit" class="btn btn-primary btn-sm">Iniciar Sesión</button>
+        
+            </form>
+
+        </div>
+        
+        <div class="col-sm-3"></div>
+
+    </div>
+
+    {% endblock %}

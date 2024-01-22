@@ -1,0 +1,89 @@
+{% extends "AppEcommerce/base.html" %}
+
+{% load static %}
+
+   {% block slider %}
+
+    <div class="container mt-5">        
+
+        <form action="productosForm" method="POST" enctype="multipart/form-data">{% csrf_token %}           
+
+            <div class="card">
+
+                <div class="card-header">
+                <b>Productos</b>
+                </div>          
+
+                <div class="col-sm-12 pr-2 pl-2 pt-2">
+                    <label for="titulo">Titulo:</label>
+                    <input type="text" name="titulo" id="titulo" class="form-control form-control-sm">
+                </div>
+
+                <div class="col-sm-12 pr-2 pl-2">
+                    <label for="descripcion_corta">Resumen:</label>
+                    <input type="text" name="descripcion_corta" id="descripcion_corta" class="form-control form-control-sm">
+                </div>
+
+                <div class="col-sm-12 pr-2 pl-2 p">
+                    <label for="descripcion_amplia">Descripción:</label>
+                    <textarea name="descripcion_amplia" id="descripcion_amplia" class="form-control form-control-sm"></textarea>
+                </div>
+
+                <div class="col-sm-12 pr-2 pl-2 p">
+                    <label for="precio">Precio:</label>
+                    <input type="number" name="precio" id="precio" class="form-control form-control-sm">
+                </div>
+            
+                <div class="col-sm-12 pr-2 pl-2">
+
+                    <label for="categoria">Categoría:</label>
+
+                    <select name="categoria" class="form-control form-control-sm">
+
+                        {% for categoria in categorias %}
+
+                            <option value="{{categoria.id_categoria}}">{{categoria.categoria}}</option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="col-sm-12 p-2">
+
+                    <label for="marca">Marcas:</label>
+
+                    <select name="marca" class="form-control form-control-sm">
+
+                        {% for marca in marcas %}
+
+                            <option value="{{marca.id_marca}}">{{marca.marca}}</option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="col-sm-12 p-2">
+
+                    <label for="foto">Foto:</label>
+
+                    <input type="file" name="foto">
+
+                </div>
+
+                <div class="col-sm-12 p-2 d-flex justify-content-end">
+                    <a href="#" class="btn btn-secondary btn-sm mr-2">CANCELAR</a>
+                    <button type="submit" class="btn btn-primary btn-sm">GUARDAR</button>
+                </div>
+
+            </div>
+
+        </form>    
+
+    </div>
+    </div>
+
+    {% endblock %}

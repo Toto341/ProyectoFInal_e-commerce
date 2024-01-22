@@ -1,0 +1,25 @@
+{% extends "AppEcommerce/base.html" %}
+
+{% load static %}
+
+   {% block slider %}
+    
+    <div class="row mt-5">
+
+        <div class="col-sm-3"></div>
+        
+        <div class="col-sm-6">  
+                   
+            <h2>Detalles de Producto</h2>
+            <p>Título: {{ producto.titulo }}</p>
+            <p>Precio: {{ producto.precio }}</p>
+            <p>Descripción Corta: {{ producto.descripcion_corta }}</p>
+            <p>Descripción Amplia: {{ producto.descripcion_amplia }}</p>
+
+        </div>
+        
+        <div class="col-sm-3"></div>
+
+    </div>
+
+    {% endblock %}

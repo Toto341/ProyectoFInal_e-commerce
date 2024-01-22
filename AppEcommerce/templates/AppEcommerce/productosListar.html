@@ -1,0 +1,52 @@
+{% extends "AppEcommerce/base.html" %}
+
+{% load static %}
+
+   {% block slider %}
+
+        <div class="container mt-5">        
+
+            <div class="card">
+
+                <div class="card-header d-flex justify-content-between">
+                    <b>Productos</b>
+                    <a class="btn btn-primary btn-sm" href="{% url 'crear_producto' %}">NUEVO</a>
+                </div>          
+
+                <table class="table table-striped table-bordered">
+
+                    <tr>
+                        <td>Foto</td>
+                        <td>Nombre</td>
+                        <td>Marca</td>
+                        <td>Categoría</td>
+                        <td>Precio</td>
+                        <td>Acciones</td>
+                    </tr>
+
+                    {%  for producto in productos %}
+
+                    <tr>
+                        <td>
+                            <img src="/{{ producto.foto }}" alt="" class="img-fluid" height="100" width="100">
+                        </td>
+                        <td>{{ producto.titulo }}</td>
+                        <td>{{ producto.marca.marca }}</td>
+                        <td>{{ producto.categoria.categoria }}</td>
+                        <td class="text-right">$ {{ producto.precio }}</td>
+                        <td class="text-right">
+                            <a href="{% url 'detalle_producto' producto.id_producto %}" class="btn btn-sm btn-info">DETALLES</a>
+                            <a href="{% url 'eliminar_producto' producto.id_producto %}" class="btn btn-sm btn-danger">ELIMINAR</a>
+                            <a href="{% url 'editar_producto' producto.id_producto %}" class="btn btn-sm btn-primary">EDITAR</a>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </table>
+                
+            </div>
+            
+        </div>
+
+   {% endblock%}

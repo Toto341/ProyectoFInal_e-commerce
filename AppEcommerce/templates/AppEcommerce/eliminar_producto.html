@@ -1,0 +1,27 @@
+{% extends "AppEcommerce/base.html" %}
+
+{% load static %}
+
+   {% block slider %}
+    
+    <div class="row mt-5">
+
+        <div class="col-sm-3"></div>
+        
+        <div class="col-sm-6">         
+
+            <h2>Eliminar Producto</h2>
+
+            <p>¿Estás seguro de que deseas eliminar "{{ producto.titulo }}"?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit">Sí, Eliminar</button>
+            </form>
+
+        </div>
+        
+        <div class="col-sm-3"></div>
+
+    </div>
+
+    {% endblock %}

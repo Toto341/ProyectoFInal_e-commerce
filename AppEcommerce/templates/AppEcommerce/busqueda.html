@@ -1,0 +1,77 @@
+{% extends "AppEcommerce/base.html" %}
+
+{% load static %}
+
+   {% block slider %}
+    
+    <div class="row mt-5">
+
+        <div class="col-sm-3"></div>
+        
+        <div class="col-sm-6">         
+
+            <h3>Buscar productos</h3>
+
+            <form action="{% url 'buscar_productos' %}" method="get" class="mt-5">
+                
+                <input type="search" name="q" class="form-control form-control-sm" value="{{ termino_busqueda }}">
+        
+                <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+        
+            </form>
+
+            <div class="row mt-5 d-flex justify-content-center">
+
+                <!-- product section -->
+                <section class="product_section layout_padding">
+                   <div class="container">
+                      <div class="heading_container heading_center">
+                         <h2>
+                            <span>Resultado de la búsqueda</span>
+                         </h2>
+                      </div>
+                      <div class="row">
+          
+                         {% for producto in productos %}
+          
+                         <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="box">
+                               <div class="option_container">
+                                  <div class="options">
+                                     <a href="{% url 'productos' producto.categoria_id producto.categoria %}" class="option1">
+                                        {{ producto.categoria }}
+                                     </a>
+                                     <a href="{% url 'detalle_producto' producto.id_producto %}" class="option2">
+                                     Detalles
+                                     </a>
+                                  </div>
+                               </div>
+                               <div class="img-box">
+                                  <img src="/{{ producto.foto }}" alt="">
+                               </div>
+                               <div class="detail-box">
+                                  <h5>
+                                     {{ producto.titulo }}
+                                  </h5>
+                                  <h6>
+                                     {{ producto.precio }} $
+                                  </h6>
+                               </div>
+                            </div>
+                         </div>
+          
+                         {% endfor %}
+                   </div>
+          
+                </section>
+                <!-- end product section -->
+          
+              </div>            
+
+        </div>
+        
+        <div class="col-sm-3"></div>
+
+    </div>
+
+    {% endblock %}

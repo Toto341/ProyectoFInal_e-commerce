@@ -1,0 +1,32 @@
+{% extends "AppEcommerce/base.html" %}
+
+{% load static %}
+
+   {% block slider %}
+    
+    <div class="row mt-5 mb-5">
+
+        <div class="col-sm-3"></div>
+        
+        <div class="col-sm-6">         
+
+            <h2>Editar Producto</h2>
+            
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-flex justify-content-end">
+
+                    <a href="{% url 'listar_productos' %}" class="btn btn-sm btn-info mr-2">VOLVER AL LISTADO</a>
+                    <button type="submit" class="btn btn-sm btn-success">ACTUALIZAR PRODUCTO</button>
+    
+                </div>
+            </form>
+
+        </div>
+        
+        <div class="col-sm-3"></div>
+
+    </div>
+
+    {% endblock %}
