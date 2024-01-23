@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 SESSION_COOKIE_SECURESESSION_COOKIE_SECURE = False
-SESSION_COOKIE_AGE = 1800  # 30 minutos en segundos
+SESSION_COOKIE_AGE = 3600   # 30 minutos en segundos
 
 # Application definition
 
