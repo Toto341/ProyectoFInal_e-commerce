@@ -5,8 +5,7 @@ Extension SQLite alexcvzz
 
 Participantes
 - Tomás De Gaetano
-Yo me encarge de la realización y control de login y el registro, tambien  cree el newsletter que permite recibir los email de los usuarios,
-cree el inicio y trabaje su frontend.
+Yo me encarge de la realización y control de login y el registro, tambien  cree el newsletter que permite recibir los email de los usuarios,cree el inicio y trabaje su frontend.
 Luego en manera conjunta con Lucas realizamos un CRUD que permite crear, eliminar y editar los productos. Tambien  creamos una vista que permite ver y editar el perfil del usuario logeado.
 Creamos una vista mediante distintos parametros, mostrar las distintas categorias de los calzados y ademas cargamos todos los productos con sus respectivas imagenes y detalles.
 
