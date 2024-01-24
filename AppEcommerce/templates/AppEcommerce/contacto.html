@@ -3,22 +3,20 @@
 {% load static %}
 
    {% block slider %}
-
-       <div class="row mt-5">
-
-        <div class="col-sm-3"></div>
-        
-        <div class="col-sm-6">         
-
-            <h3>Contacto</h3>
-
-            <!-- aca ingresar todo el texto de nosotros -->
-
-        </div>
-        
-        <div class="col-sm-3"></div>
-
-    </div>      
-
-
-   {% endblock %}
+   <div class="row mt-5">
+    <div class="col-sm-3"></div>
+    
+    <div class="col-sm-6">         
+        <h3>Contacto</h3>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="col-sm-3"></div>
+</div>
+{% endblock %}

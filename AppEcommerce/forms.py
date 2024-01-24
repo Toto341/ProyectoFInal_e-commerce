@@ -32,3 +32,10 @@ class ProductosForm(forms.ModelForm):
         if commit:
             instance.save()
         return instance            
+
+
+
+class ContactoForm(forms.Form):
+     nombre = forms.CharField(label='Nombre', max_length=100)
+     email  = forms.EmailField(label='Email')
+     mensaje = forms.CharField(label='Mensaje', widget=forms.Textarea)

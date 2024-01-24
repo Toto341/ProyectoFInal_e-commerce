@@ -11,10 +11,11 @@
         <div class="col-sm-6">   
 
             <h2>Perfil de {{ user.username }}</h2>
-            <p>Biografía: {{ perfil.bio }}</p>
             {% if perfil.avatar %}
-              <img src="{{ perfil.avatar.url }}" alt="Avatar">
+            <img src="{{ perfil.avatar.url }}" alt="Avatar">
             {% endif %}
+            <p>Biografía: {{ perfil.bio }}</p>
+
 
         </div>
         

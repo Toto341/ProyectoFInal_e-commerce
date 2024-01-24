@@ -14,8 +14,9 @@ from django.db.models import Q
 
 from django.utils.translation import activate
 
+from .forms import UserProfileForm, ProductosForm, ContactoForm
+from django.core.mail import send_mail
 
-from .forms import UserProfileForm, ProductosForm
 
 
 def index(request):
@@ -28,9 +29,26 @@ def nosotros(request):
     return render(request, "AppEcommerce/nosotros.html", {})  
 
 def contacto(request):
+    if request.method == 'POST':
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            email = form.cleaned_data['email']
+            mensaje = form.cleaned_data['mensaje']
 
-    return render(request, "AppEcommerce/contacto.html", {})  
+            # Configura tu correo electrónico y envía el mensaje
+            destinatario = 'tomasdegaetano.dark@gmail.com'
+            asunto = f'Nuevo mensaje de contacto de {nombre}'
+            cuerpo_mensaje = f'Nombre: {nombre}\nEmail: {email}\nMensaje: {mensaje}'
 
+
+            send_mail(asunto, cuerpo_mensaje, email, [destinatario] )
+
+            return render(request, 'AppEcommerce/agradecimiento.html')
+    else:
+        form = ContactoForm()
+
+    return render(request, 'AppEcommerce/contacto.html', {'form': form})
 
 # PRODUCTOS
 
@@ -255,16 +273,6 @@ def salir(request):
     return redirect('inicio')
 
 # /LOGIN + PERFIL
-
-
-# Slider 
-
-@login_required
-def sliderListar(request):
-
-    return render(request, "AppEcommerce/sliderListar.html")
-
-
 def newsletter(request):
      
      if request.method == 'POST':

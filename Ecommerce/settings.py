@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)c7(0033s2_hwj!+hymmfmki7wto@^+hlx&k(%kq80$l4@8t49
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 SESSION_COOKIE_SECURESESSION_COOKIE_SECURE = False
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.sessions',  
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'AppEcommerce',
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/jdega/Desktop/Ecommerce/AppEcommerce/templates'],
+        'DIRS': ['C:/Users/jdega/Desktop/django_ProyectoFinal/AppEcommerce/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +126,18 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/AppEcommerce/login'
+
+# Configuración básica del backend de correo
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+# Configuración del servidor SMTP de Gmail
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'tomasdegaetano.asistencia@gmail.com'  
+EMAIL_HOST_PASSWORD = 'TTB231CQc43_-'
+
+# Configuración del remitente predeterminado
+DEFAULT_FROM_EMAIL = 'tomasdegaetano.asistencia@gmail.com'  # Reemplaza con tu dirección de correo Gmail
+SERVER_EMAIL = 'tomasdegaetano.asistencia@gmail.com'
